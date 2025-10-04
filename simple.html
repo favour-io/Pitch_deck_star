@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Star: Activating a Champion's Brand</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .slide {
+            display: none;
+            padding: 50px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(45deg, #fdbb2d, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fdbb2d;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #fdbb2d;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #fdbb2d;
+            display: block;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            height: 400px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            background: #fdbb2d;
+            color: #1a2a6c;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+        
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .problem-card {
+            background: rgba(178, 31, 31, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #b21f1f;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .solution-card {
+            background: rgba(29, 178, 31, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #1db21f;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        
+        .comparison-table th {
+            background: #1a2a6c;
+            color: white;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            color: #1a2a6c;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .current-state {
+            background: rgba(178, 31, 31, 0.1);
+        }
+        
+        .future-state {
+            background: rgba(29, 178, 31, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide1">
+        <div class="container">
+            <h1>PROJECT STAR</h1>
+            <h2 style="text-align: center; color: #fdbb2d;">Activating the Michael Osumah Brand</h2>
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 1.5em; margin-bottom: 30px;">From Rising Contender to Sponsored Champion</p>
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; display: inline-block; border: 2px solid #fdbb2d;">
+                    <p style="font-size: 1.2em;">A Data-Driven Strategy to Monetize Your Legacy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Current Star Power -->
+    <div class="slide" id="slide2">
+        <div class="container">
+            <h2>The Foundation You've Built</h2>
+            <p style="font-size: 1.3em; text-align: center; margin-bottom: 40px;">You've laid an incredible foundation. The raw material for a global brand is already here.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">83.1K+</span>
+                    <p>Followers Ready to Mobilize</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">#4 / 23</span>
+                    <p>Nigerian Boxer Ranking</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">88.9%</span>
+                    <p>KO Ratio (The "Wow" Factor)</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">9-0</span>
+                    <p>Undefeated Professional Record</p>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="followerChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: The Engagement Gap -->
+    <div class="slide" id="slide3">
+        <div class="container">
+            <h2>The Problem: The Engagement Gap</h2>
+            <p style="font-size: 1.3em; text-align: center; margin-bottom: 30px;">Your engine is powerful, but we're not getting the right fuel.</p>
+            
+            <div class="chart-container">
+                <canvas id="engagementChart"></canvas>
+            </div>
+            
+            <div class="problem-stats">
+                <div class="problem-card">
+                    <span class="stat-number">0.63%</span>
+                    <p>Current Engagement Rate</p>
+                </div>
+                <div class="problem-card">
+                    <span class="stat-number">2.98%</span>
+                    <p>Sports Industry Standard</p>
+                </div>
+                <div class="problem-card">
+                    <span class="stat-number">-78%</span>
+                    <p>Below Potential</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.2em; margin-top: 20px;">
+                With your follower count, you should be getting <strong style="color: #fdbb2d;">2,400+ interactions per post</strong>. 
+                The algorithm is currently limiting your reach.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 4: The Revenue Opportunity -->
+    <div class="slide" id="slide4">
+        <div class="container">
+            <h2>The Problem: Untapped Revenue</h2>
+            <p style="font-size: 1.3em; text-align: center; margin-bottom: 30px;">You're leaving money on the table every single day.</p>
+            
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+            
+            <div style="background: rgba(178, 31, 31, 0.3); padding: 25px; border-radius: 15px; margin-top: 30px; border: 2px solid #b21f1f;">
+                <p style="text-align: center; font-size: 1.3em;">
+                    Estimated Annual Loss: <strong style="color: #fdbb2d;">$12,000 - $48,000+</strong><br>
+                    <span style="font-size: 0.9em;">From unmonetized sponsored posts alone</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: The Solution -->
+    <div class="slide" id="slide5">
+        <div class="container">
+            <h2>Our Solution: The Digital Championship Belt</h2>
+            <p style="font-size: 1.3em; text-align: center; margin-bottom: 40px;">A Three-Point Strategy to Monetize Your Legacy</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3 style="color: #1db21f; margin-bottom: 20px;">🏆 The Professional Hub</h3>
+                    <p>New high-converting website & sponsorship deck that tells your unique story</p>
+                </div>
+                <div class="solution-card">
+                    <h3 style="color: #1db21f; margin-bottom: 20px;">🚀 The Content Engine</h3>
+                    <p>AI-powered strategy to boost engagement from 0.63% to 3%+</p>
+                </div>
+                <div class="solution-card">
+                    <h3 style="color: #1db21f; margin-bottom: 20px;">💰 The Revenue Stream</h3>
+                    <p>Targeted outreach to close sponsorship deals with qualified brands</p>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="solutionChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: The Transformation -->
+    <div class="slide" id="slide6">
+        <div class="container">
+            <h2>The Result: Your Transformed Brand</h2>
+            <p style="font-size: 1.3em; text-align: center; margin-bottom: 30px;">This is the transformation we will achieve together</p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Metric</th>
+                    <th>Current State</th>
+                    <th>Future State</th>
+                </tr>
+                <tr class="current-state">
+                    <td><strong>Online Presence</strong></td>
+                    <td>❌ Broken Website</td>
+                    <td>✅ Professional Hub & Deck</td>
+                </tr>
+                <tr class="future-state">
+                    <td><strong>Sponsor Visibility</strong></td>
+                    <td>❌ Invisible to Brands</td>
+                    <td>✅ Highly Visible & Pitched</td>
+                </tr>
+                <tr class="current-state">
+                    <td><strong>Audience Engagement</strong></td>
+                    <td>❌ Low (0.63%)</td>
+                    <td>✅ Optimized (3%+)</td>
+                </tr>
+                <tr class="future-state">
+                    <td><strong>Revenue Streams</strong></td>
+                    <td>❌ Not Monetized</td>
+                    <td>✅ Active Sponsorship Deals</td>
+                </tr>
+                <tr class="current-state">
+                    <td><strong>Content Strategy</strong></td>
+                    <td>❌ Random Posts</td>
+                    <td>✅ Strategic & Viral</td>
+                </tr>
+            </table>
+            
+            <div style="background: rgba(29, 178, 31, 0.3); padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center; border: 2px solid #1db21f;">
+                <p style="font-size: 1.4em;">
+                    Projected Impact: <strong style="color: #fdbb2d;">5X Increase in Visibility</strong> and 
+                    <strong style="color: #fdbb2d;">$1,000-$5,000/month</strong> in New Sponsorship Revenue
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Call to Action -->
+    <div class="slide" id="slide7">
+        <div class="container">
+            <h2>Let's Build Your Legacy, Together</h2>
+            
+            <div style="text-align: center; margin: 50px 0;">
+                <div style="font-size: 2em; color: #fdbb2d; margin-bottom: 30px;">🎯</div>
+                <p style="font-size: 1.5em; margin-bottom: 20px;">
+                    This isn't an expense. It's an investment in the "Star Michael" business.
+                </p>
+                <p style="font-size: 1.3em; margin-bottom: 40px;">
+                    The data doesn't lie—the potential is there. My role is to be your digital trainer, 
+                    using strategy and technology to build the brand that your talent in the ring deserves.
+                </p>
+                
+                <div style="background: rgba(253, 187, 45, 0.2); padding: 30px; border-radius: 15px; border: 2px solid #fdbb2d; display: inline-block;">
+                    <p style="font-size: 1.8em; color: #fdbb2d; font-weight: bold;">LET'S GET TO WORK</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(`slide${n}`).classList.add('active');
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Initialize charts when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Follower Growth Chart
+            const followerCtx = document.getElementById('followerChart').getContext('2d');
+            new Chart(followerCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Instagram', 'TikTok', 'Potential Reach'],
+                    datasets: [{
+                        label: 'Current Audience',
+                        data: [83100, 0, 150000],
+                        backgroundColor: ['#fdbb2d', '#b21f1f', '#1a2a6c'],
+                        borderColor: ['#fdbb2d', '#b21f1f', '#1a2a6c'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Current Social Media Footprint vs Potential',
+                            font: { size: 16 },
+                            color: '#1a2a6c'
+                        },
+                        legend: {
+                            labels: { color: '#1a2a6c' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Engagement Chart
+            const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+            new Chart(engagementCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Current Rate', 'Industry Standard'],
+                    datasets: [{
+                        label: 'Engagement Rate (%)',
+                        data: [0.63, 2.98],
+                        backgroundColor: ['#b21f1f', '#1db21f'],
+                        borderColor: ['#b21f1f', '#1db21f'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'The Engagement Gap: You vs Industry Standard',
+                            font: { size: 16 },
+                            color: '#1a2a6c'
+                        },
+                        legend: {
+                            labels: { color: '#1a2a6c' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Current', 'Month 1', 'Month 2', 'Month 3', 'Month 6'],
+                    datasets: [{
+                        label: 'Projected Monthly Sponsorship Revenue ($)',
+                        data: [0, 500, 1500, 3000, 5000],
+                        borderColor: '#fdbb2d',
+                        backgroundColor: 'rgba(253, 187, 45, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Projected Revenue Growth with Strategic Approach',
+                            font: { size: 16 },
+                            color: '#1a2a6c'
+                        },
+                        legend: {
+                            labels: { color: '#1a2a6c' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#1a2a6c' },
+                            grid: { color: 'rgba(26,42,108,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Solution Impact Chart
+            const solutionCtx = document.getElementById('solutionChart').getContext('2d');
+            new Chart(solutionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Website & Deck', 'Content Strategy', 'Sponsorship Outreach'],
+                    datasets: [{
+                        data: [30, 40, 30],
+                        backgroundColor: ['#1a2a6c', '#b21f1f', '#fdbb2d'],
+                        borderColor: ['#1a2a6c', '#b21f1f', '#fdbb2d'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Strategic Focus Areas',
+                            font: { size: 16 },
+                            color: '#1a2a6c'
+                        },
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#1a2a6c', font: { size: 14 } }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
